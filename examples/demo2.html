@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<title>Demo2</title>
+		
+	</head>
+	<body>
+		<h1> 组件化构建应用</h1>
+		<div id="app1">
+			<ol>
+			<myComponent v-for="item in fruitBag" 
+						 v-bind:fruit="item"
+						 v-bind:key="item.id"></myComponent>         <!--   // 用到了自定义的组件 -->   
+			</ol>
+		</div>
+		<script>
+			
+			Vue.component('myComponent',{         // 这是自定义我自定义的组件
+				props:['fruit'],
+				template: '<li> {{fruit.name}} </li>'
+			})
+			
+			var app1 = new Vue({                 
+				el: "#app1",
+				data: {
+					fruitBag:[
+						{id: 1, name: 'orange', color: 'red'},
+						{id: 2, name: 'banana', color: 'yellow'},
+						{id: 3, name: 'watermellon', color:'green'}
+					]
+				}
+		
+			})
+			
+		</script>
+		
+	</body>
+</html>
