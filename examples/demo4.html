@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Demo4</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h2> 绑定内联样式</h2>
+		<div id="app1">
+			<p1  v-bind:style="style1">对象语法，用了一个sytle</p> 
+			
+			<p2 v-bind:style="[style1, style2]"> 数组语法，用了两个style</p2>
+		</div>
+		<script>
+			var app1 = new Vue({
+				el: "#app1",
+				data:{
+					style1:{
+						color: 'green',
+						'background-color': '#ccffcc'
+					},
+					
+					style2: {
+						fontSize: '12px'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -4,7 +4,50 @@
 		<meta charset="utf-8">
 		<title>Demo3</title>
 		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.foo {
+				color: aqua;
+			}
+			
+			.backgreen {
+				background-color: green;
+			}
+		</style>
 	</head>
+	
 	<body>
+		<h2> 绑定HTML Class</h2>
+		
+		<div id="app1" v-bind:class="{foo:useFoo, backgreen: useBackGreen}">对象语法，用foo, 没用backgreen</div>
+		<br>
+		
+		<div id="app2" v-bind:class="[class1, class2]"> 试一试数组语法，两个类都绑定上 </div>
+		
+		<br>
+		<my-component1 > 目前还没搞懂组件内绑定Class  </my-component1>
+
+		<script>
+			var app1 = new Vue({
+				el: "#app1",
+				data:{
+					useFoo: true,
+					useBackGreen: false
+				}
+			})
+			
+			var app2 = new Vue({
+				el: "#app2",
+				data:{
+					class1: 'foo',
+					class2: 'backgreen'
+				}
+			})
+			
+			Vue.component("my-component1",{
+				template: "<h3 class='backgreen'>组件绑定类</h3>"
+			})
+		
+			
+		</script>
 	</body>
 </html>
